@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Card, Badge, Button, Collapse } from 'react-bootstrap'
-import ReactMarkown from 'react-markdown'
+import ReactMarkdown from 'react-markdown'
 
 export default function Job( { job } ) {
     const [open, setOpen] = useState(false)
@@ -18,7 +18,7 @@ export default function Job( { job } ) {
                         <Badge variant="secondary" className="mr-2">{job.type}</Badge>
                         <Badge variant="secondary">{job.location}</Badge>
                         <div style={{ wordBreak: 'break-all '}}>
-                            <ReactMarkown source={job.how_to_apply} />
+                            <ReactMarkdown>{job.how_to_apply}</ReactMarkdown>
                         </div>
                     </div>
                     <img className="d-none d-md-block" height="50" src={job.company_logo} alt={job.company} />
@@ -33,7 +33,7 @@ export default function Job( { job } ) {
                 </Card.Text>
                 <Collapse in={open}>
                     <div className="mt-4">
-                        <ReactMarkown source={job.description} />
+                        <ReactMarkdown>{job.description}</ReactMarkdown>
                     </div>
                 </Collapse>
             </Card.Body>
